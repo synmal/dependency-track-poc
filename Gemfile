@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rexml'
 
 gem 'devise', '4.7.0'
+gem 'activeadmin', '1.4.3'
