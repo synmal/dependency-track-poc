@@ -19,10 +19,10 @@ jobs:
           gem install bundler cyclonedx-ruby
           bundle install --jobs 4 --retry 3
 
-      # - name: Run tests
-      #   run: |
-      #     bin/rails db:setup
-      #     bundle exec rake test
+      - name: Run tests
+        run: |
+          bin/rails db:setup
+          bundle exec rake test
 
       - name: Generate BOM
         run: |
