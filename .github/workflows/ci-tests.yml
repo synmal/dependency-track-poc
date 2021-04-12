@@ -1,0 +1,24 @@
+name: minitest
+on: [push]
+jobs:
+  tests:
+    name: Run Minitests
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v2
+
+      - name: Setup ruby environment
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+
+      - name: Setup rails environment
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: Run tests
+        run: |
+          bin/rails db:setup
+          bundle exec rake test
