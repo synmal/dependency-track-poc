@@ -30,9 +30,9 @@ jobs:
 
       - name: Upload BOM
         env:
-          DT_API_KEY: fmxzA02SvMCTLcfuYugUEFdl7Gd5ACLs
-          DT_API_URL: https://silent-dodo-31.loca.lt/api/v1/bom
-          DT_APPLICATION_UUID: 722a1f7d-b7a8-44bf-a4ed-06bd980d024e
+          DT_API_KEY: ${{ secrets.DT_API_KEY }}
+          DT_API_URL: ${{ secrets.DT_API_URL }}
+          DT_APPLICATION_UUID: ${{ secrets.DT_APPLICATION_UUID }}
         run: |
           curl --location --request PUT $DT_API_URL \
           --header "Content-Type: application/json" \
