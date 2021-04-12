@@ -16,8 +16,12 @@ jobs:
       - name: Setup rails environment
         run: |
           sudo apt-get -yqq install libpq-dev
-          gem install bundler cyclonedx-ruby
+          gem install bundler cyclonedx-ruby bundle-audit
           bundle install --jobs 4 --retry 3
+          bundle-audit update
+
+      # - name: Precheck vulnerabilities
+      #   run: bundle-audit
 
       - name: Run tests
         run: |
