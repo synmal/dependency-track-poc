@@ -39,5 +39,5 @@ jobs:
             -H "X-API-Key: $(echo $DT_API_KEY)" \
             -d $"{
               "project": "$(echo $DT_APPLICATION_UUID)",
-              "bom": $(base64 -w 0 bom.xml)
+              "bom": "$(base64 -w 0 bom.xml)"
             }"
