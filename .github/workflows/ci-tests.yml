@@ -34,10 +34,10 @@ jobs:
           DT_API_URL: https://silent-dodo-31.loca.lt/api/v1/bom
           DT_APPLICATION_UUID: 722a1f7d-b7a8-44bf-a4ed-06bd980d024e
         run: |
-          curl -X "PUT" $DT_API_URL \
-            -H 'Content-Type: application/json' \
-            -H "X-API-Key: $(echo $DT_API_KEY)" \
-            -d $"{
-              "project": "$(echo $DT_APPLICATION_UUID)",
-              "bom": "$(base64 -w 0 bom.xml)"
-            }"
+          curl --location --request PUT $DT_API_URL \
+          --header "Content-Type: application/json" \
+          --header "X-API-Key: $(echo $DT_API_KEY)" \
+          --data-raw "{
+            \"project\": \"$(echo $DT_APPLICATION_UUID)\",
+            \"bom\": \"$(base64 -w 0 bom.xml)\"
+          }"
